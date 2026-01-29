@@ -138,7 +138,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
             variant="ghost"
             size="icon-lg"
             onClick={handleCopy}
-            className="absolute right-2 top-2 z-10"
+            className="absolute right-0 -top-15"
             aria-label={copied ? 'Copied!' : 'Copy'}
           >
             {copied ? <FaCheck /> : <FaCopy />}
