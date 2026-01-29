@@ -1,6 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom"
 
 import { Layout } from "@/routes/+layout"
+import { ErrrorPage } from "@/routes/+errror"
 import { componentItems } from "@/lib/registry"
 import {
   AccordionPreview,
@@ -134,10 +135,7 @@ export function App() {
             element={<ToggleGroupPreview />}
           />
           <Route path="/components/tooltip" element={<TooltipPreview />} />
-          <Route
-            path="*"
-            element={<Navigate to={componentItems[0].path} replace />}
-          />
+          <Route path="*" element={<ErrrorPage />} />
         </Route>
       </Routes>
     </HashRouter>
