@@ -1,12 +1,12 @@
-import * as React from "react"
+import * as React from 'react';
 
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/calendar.mdx"
-import { Calendar } from "@/components/ui/calendar"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/calendar.mdx';
+import { Calendar } from '@/components/ui/calendar';
 
 export function CalendarPreview() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   return (
     <ComponentPage
@@ -17,5 +17,5 @@ export function CalendarPreview() {
     >
       <Calendar mode="single" selected={date} onSelect={setDate} />
     </ComponentPage>
-  )
+  );
 }

@@ -53,7 +53,16 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
   const [html, setHtml] = React.useState<string>('');
   const [copied, setCopied] = React.useState(false);
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
-  const [isDark, setIsDark] = React.useState<boolean>(() => document.documentElement.classList.contains('dark'));
+  const [isDark, setIsDark] = React.useState<boolean>(() => {
+    const stored = window.localStorage.getItem('theme');
+    if (stored === 'dark') {
+      return true;
+    }
+    if (stored === 'light') {
+      return false;
+    }
+    return document.documentElement.classList.contains('dark');
+  });
 
   React.useEffect(() => {
     const target = document.documentElement;
@@ -73,7 +82,10 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
       .then(highlighter => highlighter.codeToHtml(code.trimEnd(), { lang, theme }))
       .then(result => {
         if (!cancelled) {
-          const forcedBackground = isDark ? result.replace(/background-color:\s*#[0-9a-fA-F]{3,6};?/g, 'background-color:#171717;') : result;
+          const forcedBackground = result.replace(
+            /background-color:\s*#[0-9a-fA-F]{3,6};?/g,
+            isDark ? 'background-color:#171717;' : 'background-color:hsl(var(--muted));'
+          );
           setHtml(forcedBackground);
         }
       })

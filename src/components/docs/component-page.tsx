@@ -24,36 +24,26 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
   const [copied, setCopied] = React.useState(false);
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
   const location = useLocation();
-  const currentItem = React.useMemo(
-    () => componentItems.find(item => item.path === location.pathname),
-    [location.pathname]
-  );
+  const currentItem = React.useMemo(() => componentItems.find(item => item.path === location.pathname), [location.pathname]);
   const resolvedTitle = title ?? currentItem?.name ?? 'Component';
   const slug = resolvedTitle
     .trim()
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-');
-  const resolvedDocUrl =
-    docUrl === null ? null : docUrl ?? `https://ui.shadcn.com/docs/components/${slug}`;
-  const currentIndex = React.useMemo(
-    () => componentItems.findIndex(item => item.path === location.pathname),
-    [location.pathname]
-  );
+  const resolvedDocUrl = docUrl === null ? null : (docUrl ?? `https://ui.shadcn.com/docs/components/${slug}`);
+  const currentIndex = React.useMemo(() => componentItems.findIndex(item => item.path === location.pathname), [location.pathname]);
   const prevItem = currentIndex > 0 ? componentItems[currentIndex - 1] : null;
-  const nextItem =
-    currentIndex >= 0 && currentIndex < componentItems.length - 1
-      ? componentItems[currentIndex + 1]
-      : null;
+  const nextItem = currentIndex >= 0 && currentIndex < componentItems.length - 1 ? componentItems[currentIndex + 1] : null;
 
   const command = React.useMemo(() => {
     switch (manager) {
       case 'npm':
         return `npx shadcn@latest add ${slug}`;
       case 'yarn':
-        return `yarn dlx shadcn@latest add ${slug}`;
+        return `yarn shadcn@latest add ${slug}`;
       case 'bun':
-        return `bunx shadcn@latest add ${slug}`;
+        return `bunx --bun shadcn@latest add ${slug}`;
       default:
         return `pnpm dlx shadcn@latest add ${slug}`;
     }
@@ -85,7 +75,7 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
   };
 
   return (
-    <div className="mx-auto w-full max-w-2xl space-y-6">
+    <div className="mx-auto w-full max-w-3xl space-y-6">
       <Card>
         <CardHeader>
           <div className="flex items-start justify-between gap-3">

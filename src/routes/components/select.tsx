@@ -1,13 +1,7 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/select.mdx"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/select.mdx';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export function SelectPreview() {
   return (
@@ -18,15 +12,20 @@ export function SelectPreview() {
       docs={<Docs components={mdxComponents} />}
     >
       <Select>
-        <SelectTrigger>
-          <SelectValue placeholder="Pick a plan" />
+        <SelectTrigger className="w-full max-w-48">
+          <SelectValue placeholder="Select a fruit" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="starter">Starter</SelectItem>
-          <SelectItem value="pro">Pro</SelectItem>
-          <SelectItem value="enterprise">Enterprise</SelectItem>
+          <SelectGroup>
+            <SelectLabel>Fruits</SelectLabel>
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+            <SelectItem value="grapes">Grapes</SelectItem>
+            <SelectItem value="pineapple">Pineapple</SelectItem>
+          </SelectGroup>
         </SelectContent>
       </Select>
     </ComponentPage>
-  )
+  );
 }

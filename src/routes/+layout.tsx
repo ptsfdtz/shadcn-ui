@@ -7,10 +7,14 @@ import { componentItems } from "@/lib/registry"
 
 export function Layout() {
   const [search, setSearch] = React.useState("")
-  const [theme, setTheme] = React.useState<"light" | "dark">("light")
+  const [theme, setTheme] = React.useState<"light" | "dark">(() => {
+    const stored = window.localStorage.getItem("theme")
+    return stored === "dark" || stored === "light" ? stored : "light"
+  })
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark")
+    window.localStorage.setItem("theme", theme)
   }, [theme])
 
   const filtered = React.useMemo(() => {
