@@ -73,7 +73,8 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
       .then(highlighter => highlighter.codeToHtml(code.trimEnd(), { lang, theme }))
       .then(result => {
         if (!cancelled) {
-          setHtml(result);
+          const forcedBackground = isDark ? result.replace(/background-color:\s*#[0-9a-fA-F]{3,6};?/g, 'background-color:#171717;') : result;
+          setHtml(forcedBackground);
         }
       })
       .catch(() => {
@@ -121,8 +122,8 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
             {copied ? 'Copied!' : 'Copy'}
           </TooltipContent>
         </Tooltip>
-        <pre className="bg-muted/40 border rounded-md p-3 text-xs overflow-x-auto font-mono">
-          <code className="font-mono text-xs">{code}</code>
+        <pre className="bg-muted/40 dark:bg-black dark:text-zinc-100 rounded-md p-3 text-xs overflow-x-auto font-mono">
+          <code className="font-mono text-xs dark:text-zinc-100">{code}</code>
         </pre>
       </div>
     );
@@ -148,7 +149,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
         </TooltipContent>
       </Tooltip>
       <div
-        className="text-sm overflow-x-auto font-mono [&_pre]:m-0 [&_pre]:rounded-md [&_pre]:border [&_pre]:border-muted [&_pre]:p-3 [&_pre]:font-mono [&_code]:font-mono mt-3"
+        className="text-sm overflow-x-auto font-mono [&_pre]:m-0 [&_pre]:rounded-md [&_pre]:p-3 [&_pre]:font-mono [&_code]:font-mono mt-3"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
