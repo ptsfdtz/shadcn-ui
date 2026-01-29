@@ -6,8 +6,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { ArrowUpRightIcon } from 'lucide-react';
+import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from 'lucide-react';
 import { FaCheck, FaCopy } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import { componentItems } from '@/lib/registry';
 
 type ComponentPageProps = {
   title: string;
@@ -21,6 +23,7 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
   const [manager, setManager] = React.useState<'pnpm' | 'npm' | 'yarn' | 'bun'>('pnpm');
   const [copied, setCopied] = React.useState(false);
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
+  const location = useLocation();
   const slug = title
     .trim()
     .toLowerCase()
@@ -28,6 +31,15 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
     .replace(/\s+/g, '-');
   const resolvedDocUrl =
     docUrl === null ? null : docUrl ?? `https://ui.shadcn.com/docs/components/${slug}`;
+  const currentIndex = React.useMemo(
+    () => componentItems.findIndex(item => item.path === location.pathname),
+    [location.pathname]
+  );
+  const prevItem = currentIndex > 0 ? componentItems[currentIndex - 1] : null;
+  const nextItem =
+    currentIndex >= 0 && currentIndex < componentItems.length - 1
+      ? componentItems[currentIndex + 1]
+      : null;
 
   const command = React.useMemo(() => {
     switch (manager) {
@@ -132,6 +144,28 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
         <Card>
           <CardContent className="text-sm leading-6 text-foreground/90">{docs}</CardContent>
         </Card>
+      )}
+      {(prevItem || nextItem) && (
+        <div className="flex items-center justify-between">
+          {prevItem ? (
+            <Button variant="outline" size="sm" asChild>
+              <Link to={prevItem.path} className="gap-2">
+                <ArrowLeftIcon />
+                {prevItem.name}
+              </Link>
+            </Button>
+          ) : (
+            <span />
+          )}
+          {nextItem && (
+            <Button variant="outline" size="sm" asChild>
+              <Link to={nextItem.path} className="gap-2">
+                {nextItem.name}
+                <ArrowRightIcon />
+              </Link>
+            </Button>
+          )}
+        </div>
       )}
     </div>
   );
