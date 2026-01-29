@@ -16,4 +16,5 @@ export const componentItems: ComponentItem[] = [
   { id: "select", name: "Select", path: "/components/select" },
   { id: "separator", name: "Separator", path: "/components/separator" },
   { id: "textarea", name: "Textarea", path: "/components/textarea" },
+  { id: "tooltip", name: "Tooltip", path: "/components/tooltip" },
 ]

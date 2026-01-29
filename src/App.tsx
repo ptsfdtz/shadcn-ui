@@ -14,6 +14,7 @@ import {
   SelectPreview,
   SeparatorPreview,
   TextareaPreview,
+  TooltipPreview,
 } from "@/routes/components"
 
 export function App() {
@@ -36,6 +37,7 @@ export function App() {
           <Route path="/components/select" element={<SelectPreview />} />
           <Route path="/components/separator" element={<SeparatorPreview />} />
           <Route path="/components/textarea" element={<TextareaPreview />} />
+          <Route path="/components/tooltip" element={<TooltipPreview />} />
           <Route
             path="*"
             element={<Navigate to={componentItems[0].path} replace />}

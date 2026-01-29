@@ -1,0 +1,21 @@
+## 说明
+
+用于展示简短的辅助提示信息，常用于按钮、图标等交互元素。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+
+export function Example() {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Hover me</Button>
+      </TooltipTrigger>
+      <TooltipContent side="top" sideOffset={6}>
+        Quick tip
+      </TooltipContent>
+    </Tooltip>
+  )
+}
+```
