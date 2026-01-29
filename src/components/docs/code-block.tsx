@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { getHighlighter, type Highlighter } from 'shiki';
 
+import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { FaCheck, FaCopy } from 'react-icons/fa';
+
 type CodeBlockProps = {
   code: string;
   language?: string;
@@ -22,6 +26,8 @@ function getHighlighterInstance() {
 
 export function CodeBlock({ code, language }: CodeBlockProps) {
   const [html, setHtml] = React.useState<string>('');
+  const [copied, setCopied] = React.useState(false);
+  const [tooltipOpen, setTooltipOpen] = React.useState(false);
   const [isDark, setIsDark] = React.useState<boolean>(() => document.documentElement.classList.contains('dark'));
 
   React.useEffect(() => {
@@ -56,18 +62,70 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
     };
   }, [code, language, isDark]);
 
+  React.useEffect(() => {
+    if (!copied) {
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      setCopied(false);
+      setTooltipOpen(false);
+    }, 1500);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTooltipOpen(true);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   if (!html) {
     return (
-      <pre className="bg-muted/40 border rounded-md p-3 text-xs overflow-x-auto">
-        <code className="font-mono text-xs">{code}</code>
-      </pre>
+      <div className="relative">
+        <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+          <TooltipTrigger asChild>
+            <Button type="button" variant="ghost" size="icon" onClick={handleCopy} aria-label={copied ? 'Copied!' : 'Copy'}>
+              {copied ? <FaCheck /> : <FaCopy />}
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" sideOffset={6}>
+            {copied ? 'Copied!' : 'Copy'}
+          </TooltipContent>
+        </Tooltip>
+        <pre className="bg-muted/40 border rounded-md p-3 text-xs overflow-x-auto font-mono">
+          <code className="font-mono text-xs">{code}</code>
+        </pre>
+      </div>
     );
   }
 
   return (
-    <div
-      className="text-sm overflow-x-auto [&_pre]:m-0 [&_pre]:rounded-md [&_pre]:border [&_pre]:border-muted [&_pre]:p-3"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <div className="relative">
+      <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+        <TooltipTrigger asChild>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon-lg"
+            onClick={handleCopy}
+            className="absolute right-2 top-2 z-10"
+            aria-label={copied ? 'Copied!' : 'Copy'}
+          >
+            {copied ? <FaCheck /> : <FaCopy />}
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="top" sideOffset={6}>
+          {copied ? 'Copied!' : 'Copy'}
+        </TooltipContent>
+      </Tooltip>
+      <div
+        className="text-sm overflow-x-auto font-mono [&_pre]:m-0 [&_pre]:rounded-md [&_pre]:border [&_pre]:border-muted [&_pre]:p-3 [&_pre]:font-mono [&_code]:font-mono mt-3"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </div>
   );
 }
