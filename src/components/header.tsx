@@ -1,48 +1,39 @@
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { FaGithub, FaMoon, FaSun } from "react-icons/fa"
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 
 type HeaderProps = {
-  search: string
-  onSearchChange: (value: string) => void
-  theme: "light" | "dark"
-  onToggleTheme: () => void
-}
+  search: string;
+  onSearchChange: (value: string) => void;
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
+};
 
-export function Header({
-  search,
-  onSearchChange,
-  theme,
-  onToggleTheme,
-}: HeaderProps) {
+export function Header({ search, onSearchChange, theme, onToggleTheme }: HeaderProps) {
   return (
     <header className="bg-background/95 sticky top-0 z-10 flex items-center gap-3 border-b px-4 py-3 backdrop-blur">
-      <div className="text-sm font-semibold tracking-wide">My UI Kit</div>
+      <div className="text-sm font-semibold tracking-wide">组件库展示</div>
       <div className="ml-auto flex w-full max-w-md items-center gap-2">
         <Button asChild variant="ghost" size="icon" aria-label="GitHub">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://github.com/ptsfdtz/shadcn-ui" target="_blank" rel="noreferrer">
             <FaGithub />
           </a>
         </Button>
         <Input
           value={search}
-          onChange={(event) => onSearchChange(event.target.value)}
-          placeholder="Search components..."
-          aria-label="Search components"
+          onChange={event => onSearchChange(event.target.value)}
+          placeholder="搜索组件..."
+          aria-label="搜索组件"
         />
         <Button
           variant="outline"
           size="icon"
           onClick={onToggleTheme}
-          aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+          aria-label={theme === 'light' ? '切换到暗色主题' : '切换到亮色主题'}
         >
-          {theme === "light" ? <FaMoon /> : <FaSun />}
+          {theme === 'light' ? <FaMoon /> : <FaSun />}
         </Button>
       </div>
     </header>
-  )
+  );
 }

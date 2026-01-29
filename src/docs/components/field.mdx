@@ -1,0 +1,38 @@
+## 说明
+
+用于表单字段的分组与对齐。
+
+## 用法
+
+```tsx
+import { Button } from '@/components/ui/button';
+import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+export function Example() {
+  return (
+    <form>
+      <FieldGroup>
+        <Field>
+          <FieldLabel htmlFor="name">姓名</FieldLabel>
+          <Input id="name" />
+        </Field>
+        <Field>
+          <FieldLabel htmlFor="role">角色</FieldLabel>
+          <Select>
+            <SelectTrigger id="role">
+              <SelectValue placeholder="选择角色" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="designer">设计师</SelectItem>
+              <SelectItem value="developer">开发者</SelectItem>
+            </SelectContent>
+          </Select>
+        </Field>
+      </FieldGroup>
+      <Button type="button">保存</Button>
+    </form>
+  );
+}
+```

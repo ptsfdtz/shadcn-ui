@@ -18,7 +18,7 @@ export function SiderBar({ items }: SiderBarProps) {
   return (
     <aside className="bg-background w-full max-w-xs border-r p-4">
       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wider">
-        Components
+        组件列表
       </div>
       <Separator className="my-3" />
       <div className="flex flex-col gap-1">

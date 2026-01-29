@@ -1,0 +1,27 @@
+## 说明
+
+用于承载相关内容和操作。
+
+## 用法
+
+```tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
+export function Example() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>入门方案</CardTitle>
+        <CardDescription>适合小团队</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="text-3xl font-semibold">$12</div>
+      </CardContent>
+      <CardFooter>
+        <Button className="w-full">选择方案</Button>
+      </CardFooter>
+    </Card>
+  );
+}
+```

@@ -1,0 +1,24 @@
+## 说明
+
+从列表中选择一个选项。
+
+## 用法
+
+```tsx
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+export function Example() {
+  return (
+    <Select>
+      <SelectTrigger>
+        <SelectValue placeholder="选择套餐" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="starter">入门</SelectItem>
+        <SelectItem value="pro">专业</SelectItem>
+        <SelectItem value="enterprise">企业</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+}
+```

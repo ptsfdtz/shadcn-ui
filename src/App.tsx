@@ -14,7 +14,7 @@ import {
   SelectPreview,
   SeparatorPreview,
   TextareaPreview,
-} from "@/routes/previews"
+} from "@/routes/components"
 
 export function App() {
   return (
