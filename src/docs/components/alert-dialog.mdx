@@ -1,8 +1,6 @@
 ## 说明
 
-用于确认关键或不可逆操作。
-
-## 用法
+用于Confirm关键或不可逆操作。
 
 ```tsx
 import {
@@ -22,19 +20,20 @@ export function Example() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button>打开弹窗</Button>
+        <Button>Open dialog</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>确认</AlertDialogTitle>
-          <AlertDialogDescription>此操作不可撤销。</AlertDialogDescription>
+          <AlertDialogTitle>Confirm</AlertDialogTitle>
+          <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>取消</AlertDialogCancel>
-          <AlertDialogAction>继续</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );
 }
 ```
+

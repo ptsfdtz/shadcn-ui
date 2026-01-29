@@ -1,5 +1,17 @@
 import * as React from 'react';
-import { getHighlighter, type Highlighter } from 'shiki';
+import { createHighlighterCore, type HighlighterCore } from 'shiki/core';
+import getWasmInstance from 'shiki/wasm';
+import githubLight from 'shiki/themes/github-light.mjs';
+import githubDark from 'shiki/themes/github-dark.mjs';
+import tsx from 'shiki/langs/tsx.mjs';
+import ts from 'shiki/langs/ts.mjs';
+import jsx from 'shiki/langs/jsx.mjs';
+import js from 'shiki/langs/javascript.mjs';
+import json from 'shiki/langs/json.mjs';
+import bash from 'shiki/langs/bash.mjs';
+import css from 'shiki/langs/css.mjs';
+import html from 'shiki/langs/html.mjs';
+import md from 'shiki/langs/markdown.mjs';
 
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
@@ -10,15 +22,28 @@ type CodeBlockProps = {
   language?: string;
 };
 
-const supportedLanguages = ['tsx', 'ts', 'jsx', 'js', 'json', 'bash', 'css', 'html', 'md'];
+const supportedLanguages = ['tsx', 'ts', 'jsx', 'js', 'json', 'bash', 'css', 'html', 'md'] as const;
 
-let highlighterPromise: Promise<Highlighter> | null = null;
+const languageMap = {
+  tsx,
+  ts,
+  jsx,
+  js,
+  json,
+  bash,
+  css,
+  html,
+  md,
+} as const;
+
+let highlighterPromise: Promise<HighlighterCore> | null = null;
 
 function getHighlighterInstance() {
   if (!highlighterPromise) {
-    highlighterPromise = getHighlighter({
-      themes: ['github-light', 'github-dark'],
-      langs: supportedLanguages,
+    highlighterPromise = createHighlighterCore({
+      themes: [githubLight, githubDark],
+      langs: Object.values(languageMap),
+      loadWasm: getWasmInstance,
     });
   }
   return highlighterPromise;
@@ -41,7 +66,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
 
   React.useEffect(() => {
     let cancelled = false;
-    const lang = supportedLanguages.includes(language ?? '') ? (language ?? 'tsx') : 'tsx';
+    const lang = supportedLanguages.includes((language ?? '') as (typeof supportedLanguages)[number]) ? (language ?? 'tsx') : 'tsx';
     const theme = isDark ? 'github-dark' : 'github-light';
 
     getHighlighterInstance()

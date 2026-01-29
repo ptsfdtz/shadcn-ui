@@ -1,8 +1,6 @@
 ## 说明
 
-可输入搜索并选择选项。
-
-## 用法
+可输入Search并选择选项。
 
 ```tsx
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from '@/components/ui/combobox';
@@ -12,9 +10,9 @@ const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js'];
 export function Example() {
   return (
     <Combobox items={frameworks}>
-      <ComboboxInput placeholder="选择框架" />
+      <ComboboxInput placeholder="Select a framework" />
       <ComboboxContent>
-        <ComboboxEmpty>未找到匹配项</ComboboxEmpty>
+        <ComboboxEmpty>No frameworks found.</ComboboxEmpty>
         <ComboboxList>
           {item => (
             <ComboboxItem key={item} value={item}>
@@ -27,3 +25,5 @@ export function Example() {
   );
 }
 ```
+
+

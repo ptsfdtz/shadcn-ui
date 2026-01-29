@@ -2,8 +2,6 @@
 
 用于表单字段的分组与对齐。
 
-## 用法
-
 ```tsx
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
@@ -15,24 +13,26 @@ export function Example() {
     <form>
       <FieldGroup>
         <Field>
-          <FieldLabel htmlFor="name">姓名</FieldLabel>
+          <FieldLabel htmlFor="name">Name</FieldLabel>
           <Input id="name" />
         </Field>
         <Field>
-          <FieldLabel htmlFor="role">角色</FieldLabel>
+          <FieldLabel htmlFor="role">Role</FieldLabel>
           <Select>
             <SelectTrigger id="role">
-              <SelectValue placeholder="选择角色" />
+              <SelectValue placeholder="选择Role" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="designer">设计师</SelectItem>
-              <SelectItem value="developer">开发者</SelectItem>
+              <SelectItem value="designer">Designer</SelectItem>
+              <SelectItem value="developer">Developer</SelectItem>
             </SelectContent>
           </Select>
         </Field>
       </FieldGroup>
-      <Button type="button">保存</Button>
+      <Button type="button">Save</Button>
     </form>
   );
 }
 ```
+
+

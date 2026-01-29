@@ -2,8 +2,6 @@
 
 从列表中选择一个选项。
 
-## 用法
-
 ```tsx
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -11,14 +9,16 @@ export function Example() {
   return (
     <Select>
       <SelectTrigger>
-        <SelectValue placeholder="选择套餐" />
+        <SelectValue placeholder="Pick a plan" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="starter">入门</SelectItem>
-        <SelectItem value="pro">专业</SelectItem>
-        <SelectItem value="enterprise">企业</SelectItem>
+        <SelectItem value="starter">Starter</SelectItem>
+        <SelectItem value="pro">Pro</SelectItem>
+        <SelectItem value="enterprise">Enterprise</SelectItem>
       </SelectContent>
     </Select>
   );
 }
 ```
+
+

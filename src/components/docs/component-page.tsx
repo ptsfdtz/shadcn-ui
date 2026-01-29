@@ -108,7 +108,7 @@ export function ComponentPage({ title, description, children, docs }: ComponentP
       </Card>
       {docs && (
         <Card>
-          <CardContent className="pt-4 text-sm leading-6 text-foreground/90">{docs}</CardContent>
+          <CardContent className="text-sm leading-6 text-foreground/90">{docs}</CardContent>
         </Card>
       )}
     </div>
