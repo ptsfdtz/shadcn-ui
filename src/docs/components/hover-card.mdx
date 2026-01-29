@@ -1,0 +1,23 @@
+## 说明
+
+用于悬停时显示补充信息。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
+export function Example() {
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="link">Hover me</Button>
+      </HoverCardTrigger>
+      <HoverCardContent>Additional details here.</HoverCardContent>
+    </HoverCard>
+  )
+}
+```

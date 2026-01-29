@@ -17,6 +17,7 @@ export function ComboboxPreview() {
     <ComponentPage
       title="Combobox"
       description="可搜索的下拉选择"
+      docUrl="https://ui.shadcn.com/docs/components/combobox"
       docs={<Docs components={mdxComponents} />}
     >
       <Combobox items={frameworks}>

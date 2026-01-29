@@ -1,0 +1,26 @@
+## 说明
+
+用于轮播展示内容或图片。
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
+export function Example() {
+  return (
+    <Carousel>
+      <CarouselContent>
+        <CarouselItem>Slide 1</CarouselItem>
+        <CarouselItem>Slide 2</CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}
+```

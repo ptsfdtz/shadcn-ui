@@ -16,7 +16,12 @@ import {
 
 export function AlertDialogPreview() {
   return (
-    <ComponentPage title="Alert Dialog" description="用于关键操作的确认弹窗" docs={<Docs components={mdxComponents} />}>
+    <ComponentPage
+      title="Alert Dialog"
+      description="用于关键操作的确认弹窗"
+      docUrl="https://ui.shadcn.com/docs/components/alert-dialog"
+      docs={<Docs components={mdxComponents} />}
+    >
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button>Open dialog</Button>

@@ -1,0 +1,21 @@
+## 说明
+
+用于可拖拽调整面板。
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
+export function Example() {
+  return (
+    <ResizablePanelGroup direction="horizontal" className="h-32">
+      <ResizablePanel defaultSize={40}>Left</ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel defaultSize={60}>Right</ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```

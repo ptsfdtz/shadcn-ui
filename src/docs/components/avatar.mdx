@@ -1,0 +1,20 @@
+## 说明
+
+用于显示用户头像与状态。
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage, AvatarBadge } from '@/components/ui/avatar';
+import { CheckIcon } from 'lucide-react';
+
+export function Example() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=256&auto=format&fit=crop" alt="Olivia" />
+      <AvatarFallback>OL</AvatarFallback>
+      <AvatarBadge>
+        <CheckIcon />
+      </AvatarBadge>
+    </Avatar>
+  );
+}
+```

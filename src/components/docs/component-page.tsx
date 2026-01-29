@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { ArrowUpRightIcon } from 'lucide-react';
 import { FaCheck, FaCopy } from 'react-icons/fa';
 
 type ComponentPageProps = {
@@ -13,9 +14,10 @@ type ComponentPageProps = {
   description?: string;
   children: ReactNode;
   docs?: ReactNode;
+  docUrl?: string | null;
 };
 
-export function ComponentPage({ title, description, children, docs }: ComponentPageProps) {
+export function ComponentPage({ title, description, children, docs, docUrl }: ComponentPageProps) {
   const [manager, setManager] = React.useState<'pnpm' | 'npm' | 'yarn' | 'bun'>('pnpm');
   const [copied, setCopied] = React.useState(false);
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
@@ -24,6 +26,8 @@ export function ComponentPage({ title, description, children, docs }: ComponentP
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-');
+  const resolvedDocUrl =
+    docUrl === null ? null : docUrl ?? `https://ui.shadcn.com/docs/components/${slug}`;
 
   const command = React.useMemo(() => {
     switch (manager) {
@@ -63,13 +67,31 @@ export function ComponentPage({ title, description, children, docs }: ComponentP
     <div className="mx-auto w-full max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
-          {description && <CardDescription>{description}</CardDescription>}
+          <div className="flex items-start justify-between gap-3">
+            <div className="space-y-1">
+              <CardTitle>{title}</CardTitle>
+              {description && <CardDescription>{description}</CardDescription>}
+            </div>
+            {resolvedDocUrl && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button type="button" variant="ghost" size="icon-sm" asChild aria-label="官方文档">
+                    <a href={resolvedDocUrl} target="_blank" rel="noreferrer">
+                      <ArrowUpRightIcon />
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top" sideOffset={6}>
+                  官方文档
+                </TooltipContent>
+              </Tooltip>
+            )}
+          </div>
         </CardHeader>
         <Separator />
         <CardContent>{children}</CardContent>
         <CardFooter className="justify-between">
-          <div className="text-muted-foreground text-xs">示例</div>
+          <div className="text-muted-foreground text-xs">Demo</div>
           <Badge variant="secondary">{title}</Badge>
         </CardFooter>
       </Card>

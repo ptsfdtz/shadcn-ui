@@ -1,0 +1,27 @@
+## 说明
+
+用于点击展开的下拉菜单。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+export function Example() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Open menu</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>New file</DropdownMenuItem>
+        <DropdownMenuItem>Duplicate</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+```

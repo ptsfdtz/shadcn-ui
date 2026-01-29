@@ -1,0 +1,19 @@
+## 说明
+
+用于侧边面板或临时抽屉。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+
+export function Example() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Open sheet</Button>
+      </SheetTrigger>
+      <SheetContent>Sheet content</SheetContent>
+    </Sheet>
+  )
+}
+```

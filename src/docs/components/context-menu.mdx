@@ -1,0 +1,24 @@
+## 说明
+
+用于右键打开上下文菜单。
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu"
+
+export function Example() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>Right click</ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuItem>Rename</ContextMenuItem>
+        <ContextMenuItem>Delete</ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+```

@@ -1,0 +1,31 @@
+## 说明
+
+用于从屏幕边缘滑出的抽屉面板。
+
+```tsx
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button"
+
+export function Example() {
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button variant="outline">Open drawer</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Move faster</DrawerTitle>
+          <DrawerDescription>Stay focused while editing.</DrawerDescription>
+        </DrawerHeader>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+```

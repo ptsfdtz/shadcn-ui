@@ -16,7 +16,7 @@ type SiderBarProps = {
 
 export function SiderBar({ items }: SiderBarProps) {
   return (
-    <aside className="bg-background w-full max-w-xs border-r p-4">
+    <aside className="bg-background w-full max-w-xs border-r p-4 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto no-scrollbar">
       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wider">Components</div>
       <Separator className="my-3" />
       <div className="flex flex-col gap-1">

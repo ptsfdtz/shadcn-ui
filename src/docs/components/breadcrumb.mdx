@@ -1,0 +1,30 @@
+## 说明
+
+用于展示页面层级与导航路径。
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+export function Example() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```

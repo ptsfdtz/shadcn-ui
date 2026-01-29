@@ -14,6 +14,7 @@ export function SelectPreview() {
     <ComponentPage
       title="Select"
       description="下拉选择"
+      docUrl="https://ui.shadcn.com/docs/components/select"
       docs={<Docs components={mdxComponents} />}
     >
       <Select>

@@ -1,0 +1,29 @@
+## 说明
+
+用于弹出内容或确认操作。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+export function Example() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>Open dialog</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Invite member</DialogTitle>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  )
+}
+```

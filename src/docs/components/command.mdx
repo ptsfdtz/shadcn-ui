@@ -1,0 +1,24 @@
+## 说明
+
+用于实现命令面板与搜索列表。
+
+```tsx
+import {
+  Command,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+
+export function Example() {
+  return (
+    <Command>
+      <CommandInput placeholder="Search..." />
+      <CommandList>
+        <CommandItem>Calendar</CommandItem>
+        <CommandItem>Search Docs</CommandItem>
+      </CommandList>
+    </Command>
+  )
+}
+```

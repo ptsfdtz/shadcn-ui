@@ -8,7 +8,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 export function FieldPreview() {
   return (
-    <ComponentPage title="Field" description="表单字段与分组" docs={<Docs components={mdxComponents} />}>
+    <ComponentPage
+      title="Field"
+      description="表单字段与分组"
+      docUrl="https://ui.shadcn.com/docs/components/field"
+      docs={<Docs components={mdxComponents} />}
+    >
       <form className="space-y-4">
         <FieldGroup>
           <Field>

@@ -1,0 +1,20 @@
+## 说明
+
+用于内容分组切换。
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+export function Example() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="billing">Billing</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Account settings.</TabsContent>
+      <TabsContent value="billing">Billing preferences.</TabsContent>
+    </Tabs>
+  )
+}
+```

@@ -12,6 +12,7 @@ export function InputGroupPreview() {
     <ComponentPage
       title="Input Group"
       description="组合输入"
+      docUrl="https://ui.shadcn.com/docs/components/input-group"
       docs={<Docs components={mdxComponents} />}
     >
       <div className="grid gap-3">

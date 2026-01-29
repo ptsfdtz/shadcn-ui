@@ -1,0 +1,18 @@
+## 说明
+
+用于轻量提示与消息通知。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Toaster } from "@/components/ui/sonner"
+import { toast } from "sonner"
+
+export function Example() {
+  return (
+    <div className="flex flex-col gap-3">
+      <Button onClick={() => toast("Saved")}>Show toast</Button>
+      <Toaster />
+    </div>
+  )
+}
+```

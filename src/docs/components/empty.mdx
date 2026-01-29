@@ -1,0 +1,28 @@
+## 说明
+
+用于空状态占位展示。
+
+```tsx
+import { Button } from "@/components/ui/button"
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "@/components/ui/empty"
+
+export function Example() {
+  return (
+    <Empty>
+      <EmptyHeader>
+        <EmptyTitle>No results</EmptyTitle>
+        <EmptyDescription>Try adjusting your filters.</EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
+        <Button variant="outline">Clear filters</Button>
+      </EmptyContent>
+    </Empty>
+  )
+}
+```
