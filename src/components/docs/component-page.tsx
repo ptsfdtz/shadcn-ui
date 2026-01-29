@@ -12,7 +12,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { componentItems } from '@/lib/registry';
 
 type ComponentPageProps = {
-  title: string;
+  title?: string;
   description?: string;
   children: ReactNode;
   docs?: ReactNode;
@@ -24,7 +24,12 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
   const [copied, setCopied] = React.useState(false);
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
   const location = useLocation();
-  const slug = title
+  const currentItem = React.useMemo(
+    () => componentItems.find(item => item.path === location.pathname),
+    [location.pathname]
+  );
+  const resolvedTitle = title ?? currentItem?.name ?? 'Component';
+  const slug = resolvedTitle
     .trim()
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
@@ -65,6 +70,10 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
     return () => window.clearTimeout(timer);
   }, [copied]);
 
+  React.useEffect(() => {
+    document.title = resolvedTitle;
+  }, [resolvedTitle]);
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(command);
@@ -81,7 +90,7 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
         <CardHeader>
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
-              <CardTitle>{title}</CardTitle>
+              <CardTitle>{resolvedTitle}</CardTitle>
               {description && <CardDescription>{description}</CardDescription>}
             </div>
             {resolvedDocUrl && (
@@ -104,7 +113,7 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
         <CardContent>{children}</CardContent>
         <CardFooter className="justify-between">
           <div className="text-muted-foreground text-xs">Demo</div>
-          <Badge variant="secondary">{title}</Badge>
+          <Badge variant="secondary">{resolvedTitle}</Badge>
         </CardFooter>
       </Card>
       <Card>
