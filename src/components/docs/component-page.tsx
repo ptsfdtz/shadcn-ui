@@ -75,7 +75,7 @@ export function ComponentPage({ title, description, children, docs, docUrl }: Co
   };
 
   return (
-    <div className="mx-auto w-full min-w-0 space-y-6 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
+    <div className="mx-auto w-full min-w-0 space-y-6 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
       <Card className="overflow-visible">
         <CardHeader>
           <div className="flex items-start justify-between gap-3">
