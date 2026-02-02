@@ -54,8 +54,8 @@ export function Layout() {
           onClose={() => setSidebarOpen(false)}
           onSelect={() => setSidebarOpen(false)}
         />
-        <main className="flex flex-1 justify-center p-4 md:p-6">
-          <div className="w-full">
+        <main className="flex min-w-0 flex-1 justify-center p-4 md:p-6">
+          <div className="w-full min-w-0">
             <Outlet />
           </div>
         </main>
