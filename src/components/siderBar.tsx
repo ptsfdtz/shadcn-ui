@@ -12,18 +12,36 @@ type SidebarItem = {
 
 type SiderBarProps = {
   items: SidebarItem[];
+  mobileOpen?: boolean;
+  onClose?: () => void;
+  onSelect?: () => void;
 };
 
-export function SiderBar({ items }: SiderBarProps) {
+export function SiderBar({ items, mobileOpen = false, onClose, onSelect }: SiderBarProps) {
   return (
-    <aside className="bg-background w-full max-w-xs border-r p-4 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto no-scrollbar">
+    <aside
+      className={cn(
+        'bg-background border-r p-4 overflow-y-auto no-scrollbar',
+        'fixed inset-y-0 left-0 z-30 h-dvh w-72 max-w-[80vw] -translate-x-full transition-transform duration-200 ease-out md:sticky md:top-[60px] md:h-[calc(100vh-60px)] md:translate-x-0 md:w-64 md:max-w-none md:flex-none',
+        mobileOpen && 'translate-x-0'
+      )}
+      onKeyDown={event => {
+        if (event.key === 'Escape') {
+          onClose?.();
+        }
+      }}
+    >
       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wider">Components</div>
       <Separator className="my-3" />
       <div className="flex flex-col gap-1">
         {items.map(item => (
           <NavLink key={item.id} to={item.path} className="block">
             {({ isActive }) => (
-              <Button variant="ghost" className={cn('w-full justify-start', isActive && 'bg-accent text-accent-foreground')}>
+              <Button
+                variant="ghost"
+                className={cn('w-full justify-start', isActive && 'bg-accent text-accent-foreground')}
+                onClick={() => onSelect?.()}
+              >
                 {item.name}
               </Button>
             )}

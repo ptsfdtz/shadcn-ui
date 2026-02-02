@@ -7,6 +7,7 @@ import { componentItems } from "@/lib/registry"
 
 export function Layout() {
   const [search, setSearch] = React.useState("")
+  const [sidebarOpen, setSidebarOpen] = React.useState(false)
   const [theme, setTheme] = React.useState<"light" | "dark">(() => {
     const stored = window.localStorage.getItem("theme")
     return stored === "dark" || stored === "light" ? stored : "light"
@@ -36,11 +37,27 @@ export function Layout() {
         onToggleTheme={() =>
           setTheme((current) => (current === "light" ? "dark" : "light"))
         }
+        sidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen((open) => !open)}
       />
-      <div className="flex min-h-[calc(100vh-60px)]">
-        <SiderBar items={filtered} />
-        <main className="flex-1 p-6">
-          <Outlet />
+      <div className="relative flex min-h-[calc(100vh-60px)]">
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 z-20 bg-black/40 md:hidden"
+            onClick={() => setSidebarOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+        <SiderBar
+          items={filtered}
+          mobileOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+          onSelect={() => setSidebarOpen(false)}
+        />
+        <main className="flex flex-1 justify-center p-4 md:p-6">
+          <div className="w-full">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
