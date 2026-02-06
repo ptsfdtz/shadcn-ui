@@ -1,16 +1,9 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/combobox.mdx"
-import {
-  Combobox,
-  ComboboxContent,
-  ComboboxEmpty,
-  ComboboxInput,
-  ComboboxItem,
-  ComboboxList,
-} from "@/components/ui/combobox"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/combobox.mdx';
+import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from '@/components/ui/combobox';
 
-const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"] as const
+const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'] as const;
 
 export function ComboboxPreview() {
   return (
@@ -25,7 +18,7 @@ export function ComboboxPreview() {
         <ComboboxContent>
           <ComboboxEmpty>No frameworks found.</ComboboxEmpty>
           <ComboboxList>
-            {(item) => (
+            {item => (
               <ComboboxItem key={item} value={item}>
                 {item}
               </ComboboxItem>
@@ -34,5 +27,5 @@ export function ComboboxPreview() {
         </ComboboxContent>
       </Combobox>
     </ComponentPage>
-  )
+  );
 }

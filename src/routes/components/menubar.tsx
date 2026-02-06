@@ -1,23 +1,11 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/menubar.mdx"
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/menubar.mdx';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 
 export function MenubarPreview() {
   return (
-    <ComponentPage
-      title="Menubar"
-      description="用于展示应用菜单栏"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Menubar" description="用于展示应用菜单栏" docs={<Docs components={mdxComponents} />}>
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>File</MenubarTrigger>
@@ -43,5 +31,5 @@ export function MenubarPreview() {
         </MenubarMenu>
       </Menubar>
     </ComponentPage>
-  )
+  );
 }

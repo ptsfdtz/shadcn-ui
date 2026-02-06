@@ -1,9 +1,9 @@
-import * as React from "react"
+import * as React from 'react';
 
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/dropdown-menu.mdx"
-import { Button } from "@/components/ui/button"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/dropdown-menu.mdx';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -16,11 +16,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu';
 
 export function DropdownMenuPreview() {
-  const [showStatus, setShowStatus] = React.useState(true)
-  const [position, setPosition] = React.useState("bottom")
+  const [showStatus, setShowStatus] = React.useState(true);
+  const [position, setPosition] = React.useState('bottom');
 
   return (
     <ComponentPage
@@ -43,17 +43,11 @@ export function DropdownMenuPreview() {
             <DropdownMenuItem>Duplicate</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuCheckboxItem
-            checked={showStatus}
-            onCheckedChange={(value) => setShowStatus(value === true)}
-          >
+          <DropdownMenuCheckboxItem checked={showStatus} onCheckedChange={value => setShowStatus(value === true)}>
             Show status bar
           </DropdownMenuCheckboxItem>
           <DropdownMenuSeparator />
-          <DropdownMenuRadioGroup
-            value={position}
-            onValueChange={setPosition}
-          >
+          <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
             <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
@@ -61,5 +55,5 @@ export function DropdownMenuPreview() {
         </DropdownMenuContent>
       </DropdownMenu>
     </ComponentPage>
-  )
+  );
 }

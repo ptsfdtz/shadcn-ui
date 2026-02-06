@@ -1,16 +1,12 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/radio-group.mdx"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/radio-group.mdx';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 export function RadioGroupPreview() {
   return (
-    <ComponentPage
-      title="Radio Group"
-      description="用于单选项选择"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Radio Group" description="用于单选项选择" docs={<Docs components={mdxComponents} />}>
       <RadioGroup defaultValue="weekly">
         <div className="flex items-center gap-2">
           <RadioGroupItem value="daily" id="daily" />
@@ -26,5 +22,5 @@ export function RadioGroupPreview() {
         </div>
       </RadioGroup>
     </ComponentPage>
-  )
+  );
 }

@@ -1,11 +1,7 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/input-group.mdx"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/input-group.mdx';
+import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group';
 
 export function InputGroupPreview() {
   return (
@@ -26,5 +22,5 @@ export function InputGroupPreview() {
         </InputGroup>
       </div>
     </ComponentPage>
-  )
+  );
 }

@@ -1,23 +1,12 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/avatar.mdx"
-import {
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { CheckIcon } from "lucide-react"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/avatar.mdx';
+import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from '@/components/ui/avatar';
+import { CheckIcon } from 'lucide-react';
 
 export function AvatarPreview() {
   return (
-    <ComponentPage
-      title="Avatar"
-      description="用户头像展示"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Avatar" description="用户头像展示" docs={<Docs components={mdxComponents} />}>
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-4">
           <Avatar>
@@ -49,5 +38,5 @@ export function AvatarPreview() {
         </AvatarGroup>
       </div>
     </ComponentPage>
-  )
+  );
 }

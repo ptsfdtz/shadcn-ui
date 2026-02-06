@@ -3,12 +3,8 @@
 用于展开或收起一段内容。
 
 ```tsx
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import { Button } from "@/components/ui/button"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Button } from '@/components/ui/button';
 
 export function Example() {
   return (
@@ -16,10 +12,8 @@ export function Example() {
       <CollapsibleTrigger asChild>
         <Button variant="outline">Toggle</Button>
       </CollapsibleTrigger>
-      <CollapsibleContent>
-        Hidden content
-      </CollapsibleContent>
+      <CollapsibleContent>Hidden content</CollapsibleContent>
     </Collapsible>
-  )
+  );
 }
 ```

@@ -1,8 +1,8 @@
-import { HashRouter, Navigate, Route, Routes } from "react-router-dom"
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import { Layout } from "@/routes/+layout"
-import { ErrrorPage } from "@/routes/+errror"
-import { componentItems } from "@/lib/registry"
+import { Layout } from '@/routes/+layout';
+import { ErrrorPage } from '@/routes/+errror';
+import { componentItems } from '@/lib/registry';
 import {
   AccordionPreview,
   AlertPreview,
@@ -58,17 +58,14 @@ import {
   TogglePreview,
   ToggleGroupPreview,
   TooltipPreview,
-} from "@/routes/components"
+} from '@/routes/components';
 
 export function App() {
   return (
     <HashRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route
-            path="/"
-            element={<Navigate to={componentItems[0].path} replace />}
-          />
+          <Route path="/" element={<Navigate to={componentItems[0].path} replace />} />
           <Route path="/components/accordion" element={<AccordionPreview />} />
           <Route path="/components/alert" element={<AlertPreview />} />
           <Route path="/components/alert-dialog" element={<AlertDialogPreview />} />
@@ -101,23 +98,14 @@ export function App() {
           <Route path="/components/kbd" element={<KbdPreview />} />
           <Route path="/components/label" element={<LabelPreview />} />
           <Route path="/components/menubar" element={<MenubarPreview />} />
-          <Route
-            path="/components/native-select"
-            element={<NativeSelectPreview />}
-          />
-          <Route
-            path="/components/navigation-menu"
-            element={<NavigationMenuPreview />}
-          />
+          <Route path="/components/native-select" element={<NativeSelectPreview />} />
+          <Route path="/components/navigation-menu" element={<NavigationMenuPreview />} />
           <Route path="/components/pagination" element={<PaginationPreview />} />
           <Route path="/components/popover" element={<PopoverPreview />} />
           <Route path="/components/progress" element={<ProgressPreview />} />
           <Route path="/components/radio-group" element={<RadioGroupPreview />} />
           <Route path="/components/resizable" element={<ResizablePreview />} />
-          <Route
-            path="/components/scroll-area"
-            element={<ScrollAreaPreview />}
-          />
+          <Route path="/components/scroll-area" element={<ScrollAreaPreview />} />
           <Route path="/components/select" element={<SelectPreview />} />
           <Route path="/components/separator" element={<SeparatorPreview />} />
           <Route path="/components/sheet" element={<SheetPreview />} />
@@ -130,16 +118,13 @@ export function App() {
           <Route path="/components/tabs" element={<TabsPreview />} />
           <Route path="/components/textarea" element={<TextareaPreview />} />
           <Route path="/components/toggle" element={<TogglePreview />} />
-          <Route
-            path="/components/toggle-group"
-            element={<ToggleGroupPreview />}
-          />
+          <Route path="/components/toggle-group" element={<ToggleGroupPreview />} />
           <Route path="/components/tooltip" element={<TooltipPreview />} />
           <Route path="*" element={<ErrrorPage />} />
         </Route>
       </Routes>
     </HashRouter>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { componentItems } from "@/lib/registry"
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { componentItems } from '@/lib/registry';
 
 export function ErrrorPage() {
   return (
@@ -22,5 +22,5 @@ export function ErrrorPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

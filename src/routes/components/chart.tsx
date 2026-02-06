@@ -1,41 +1,28 @@
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/chart.mdx"
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/chart.mdx';
+import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 
 const data = [
-  { month: "Jan", desktop: 420, mobile: 280 },
-  { month: "Feb", desktop: 380, mobile: 260 },
-  { month: "Mar", desktop: 510, mobile: 340 },
-  { month: "Apr", desktop: 470, mobile: 320 },
-  { month: "May", desktop: 530, mobile: 360 },
-]
+  { month: 'Jan', desktop: 420, mobile: 280 },
+  { month: 'Feb', desktop: 380, mobile: 260 },
+  { month: 'Mar', desktop: 510, mobile: 340 },
+  { month: 'Apr', desktop: 470, mobile: 320 },
+  { month: 'May', desktop: 530, mobile: 360 },
+];
 
 const config = {
   desktop: {
-    label: "Desktop",
-    color: "oklch(0.62 0.21 259.8)",
+    label: 'Desktop',
+    color: 'oklch(0.62 0.21 259.8)',
   },
   mobile: {
-    label: "Mobile",
-    color: "oklch(0.81 0.10 251.8)",
+    label: 'Mobile',
+    color: 'oklch(0.81 0.10 251.8)',
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function ChartPreview() {
   return (
@@ -48,12 +35,7 @@ export function ChartPreview() {
       <ChartContainer config={config} className="h-64 w-full">
         <BarChart data={data}>
           <CartesianGrid vertical={false} />
-          <XAxis
-            dataKey="month"
-            tickLine={false}
-            axisLine={false}
-            tickMargin={8}
-          />
+          <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
           <YAxis tickLine={false} axisLine={false} tickMargin={8} />
           <ChartTooltip content={<ChartTooltipContent />} />
           <ChartLegend content={<ChartLegendContent />} />
@@ -62,5 +44,5 @@ export function ChartPreview() {
         </BarChart>
       </ChartContainer>
     </ComponentPage>
-  )
+  );
 }

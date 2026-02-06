@@ -1,6 +1,6 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/breadcrumb.mdx"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/breadcrumb.mdx';
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -9,15 +9,11 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from '@/components/ui/breadcrumb';
 
 export function BreadcrumbPreview() {
   return (
-    <ComponentPage
-      title="Breadcrumb"
-      description="用于展示层级导航"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Breadcrumb" description="用于展示层级导航" docs={<Docs components={mdxComponents} />}>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -38,5 +34,5 @@ export function BreadcrumbPreview() {
         </BreadcrumbList>
       </Breadcrumb>
     </ComponentPage>
-  )
+  );
 }

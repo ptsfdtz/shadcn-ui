@@ -1,6 +1,6 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/command.mdx"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/command.mdx';
 import {
   Command,
   CommandEmpty,
@@ -10,15 +10,11 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/components/ui/command"
+} from '@/components/ui/command';
 
 export function CommandPreview() {
   return (
-    <ComponentPage
-      title="Command"
-      description="用于命令面板与快速搜索"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Command" description="用于命令面板与快速搜索" docs={<Docs components={mdxComponents} />}>
       <Command className="border rounded-lg">
         <CommandInput placeholder="Search commands..." />
         <CommandList>
@@ -42,5 +38,5 @@ export function CommandPreview() {
         </CommandList>
       </Command>
     </ComponentPage>
-  )
+  );
 }

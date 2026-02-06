@@ -3,19 +3,13 @@
 用于展示统计数据图表。
 
 ```tsx
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart"
-import { Bar, BarChart } from "recharts"
+import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { Bar, BarChart } from 'recharts';
 
 const data = [
-  { month: "Jan", desktop: 420, mobile: 280 },
-  { month: "Feb", desktop: 380, mobile: 260 },
-]
+  { month: 'Jan', desktop: 420, mobile: 280 },
+  { month: 'Feb', desktop: 380, mobile: 260 },
+];
 
 export function Example() {
   return (
@@ -26,6 +20,6 @@ export function Example() {
         <Bar dataKey="desktop" />
       </BarChart>
     </ChartContainer>
-  )
+  );
 }
 ```

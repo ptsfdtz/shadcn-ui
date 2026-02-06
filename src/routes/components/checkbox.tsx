@@ -1,16 +1,12 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/checkbox.mdx"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/checkbox.mdx';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
 
 export function CheckboxPreview() {
   return (
-    <ComponentPage
-      title="Checkbox"
-      description="用于多选或开关选择"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Checkbox" description="用于多选或开关选择" docs={<Docs components={mdxComponents} />}>
       <div className="grid gap-4">
         <div className="flex items-center gap-2">
           <Checkbox id="terms" defaultChecked />
@@ -26,5 +22,5 @@ export function CheckboxPreview() {
         </div>
       </div>
     </ComponentPage>
-  )
+  );
 }

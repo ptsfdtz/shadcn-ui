@@ -1,26 +1,13 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/item.mdx"
-import { Button } from "@/components/ui/button"
-import {
-  Item,
-  ItemActions,
-  ItemContent,
-  ItemDescription,
-  ItemGroup,
-  ItemMedia,
-  ItemSeparator,
-  ItemTitle,
-} from "@/components/ui/item"
-import { BellIcon, ChevronRightIcon } from "lucide-react"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/item.mdx';
+import { Button } from '@/components/ui/button';
+import { Item, ItemActions, ItemContent, ItemDescription, ItemGroup, ItemMedia, ItemSeparator, ItemTitle } from '@/components/ui/item';
+import { BellIcon, ChevronRightIcon } from 'lucide-react';
 
 export function ItemPreview() {
   return (
-    <ComponentPage
-      title="Item"
-      description="用于展示列表项或卡片条目"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Item" description="用于展示列表项或卡片条目" docs={<Docs components={mdxComponents} />}>
       <ItemGroup>
         <Item>
           <ItemMedia variant="icon">
@@ -50,5 +37,5 @@ export function ItemPreview() {
         </Item>
       </ItemGroup>
     </ComponentPage>
-  )
+  );
 }

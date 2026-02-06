@@ -29,9 +29,7 @@ export function AlertDialogPreview() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Confirm action</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. Continue?
-            </AlertDialogDescription>
+            <AlertDialogDescription>This action cannot be undone. Continue?</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>

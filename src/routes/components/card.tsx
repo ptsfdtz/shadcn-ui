@@ -1,23 +1,12 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/card.mdx"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/card.mdx';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function CardPreview() {
   return (
-    <ComponentPage
-      title="Card"
-      description="用于内容分组与承载"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Card" description="用于内容分组与承载" docs={<Docs components={mdxComponents} />}>
       <Card className="shadow-none">
         <CardHeader>
           <CardTitle>Starter plan</CardTitle>
@@ -32,5 +21,5 @@ export function CardPreview() {
         </CardFooter>
       </Card>
     </ComponentPage>
-  )
+  );
 }

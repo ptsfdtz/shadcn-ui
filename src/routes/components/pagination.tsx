@@ -1,6 +1,6 @@
-import { ComponentPage } from "@/components/docs/component-page"
-import { mdxComponents } from "@/components/docs/mdx-components"
-import Docs from "@/docs/components/pagination.mdx"
+import { ComponentPage } from '@/components/docs/component-page';
+import { mdxComponents } from '@/components/docs/mdx-components';
+import Docs from '@/docs/components/pagination.mdx';
 import {
   Pagination,
   PaginationContent,
@@ -9,15 +9,11 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"
+} from '@/components/ui/pagination';
 
 export function PaginationPreview() {
   return (
-    <ComponentPage
-      title="Pagination"
-      description="用于分页导航"
-      docs={<Docs components={mdxComponents} />}
-    >
+    <ComponentPage title="Pagination" description="用于分页导航" docs={<Docs components={mdxComponents} />}>
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -43,5 +39,5 @@ export function PaginationPreview() {
         </PaginationContent>
       </Pagination>
     </ComponentPage>
-  )
+  );
 }

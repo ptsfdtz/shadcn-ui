@@ -1,20 +1,16 @@
-import path from "path"
-import mdx from "@mdx-js/rollup"
-import tailwindcss from "@tailwindcss/vite"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
+import path from 'path';
+import mdx from '@mdx-js/rollup';
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.BASE_URL ?? "/",
-  plugins: [
-    mdx({ providerImportSource: "@mdx-js/react" }),
-    react(),
-    tailwindcss(),
-  ],
+  base: process.env.BASE_URL ?? '/',
+  plugins: [mdx({ providerImportSource: '@mdx-js/react' }), react(), tailwindcss()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
-})
+});
