@@ -1,2 +1,3 @@
 export { Header } from './header';
-export { SiderBar } from './siderBar';
+export { LeftSiderBar } from './leftSiderBar';
+export { RightSidebar } from './rightSidebar';

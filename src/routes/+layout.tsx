@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '@/components/header';
-import { SiderBar } from '@/components/siderBar';
+import { Header, LeftSiderBar, RightSidebar } from '@/components';
 import { componentItems } from '@/lib/registry';
 
 export function Layout() {
@@ -42,19 +41,18 @@ export function Layout() {
         onSearchChange={setSearch}
         theme={theme}
         onToggleTheme={() => setTheme(current => (current === 'light' ? 'dark' : 'light'))}
-        colorTheme={colorTheme}
-        onColorThemeChange={setColorTheme}
         sidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen(open => !open)}
       />
       <div className="relative flex min-h-[calc(100vh-60px)]">
         {sidebarOpen && <div className="fixed inset-0 z-20 bg-black/40 md:hidden" onClick={() => setSidebarOpen(false)} aria-hidden="true" />}
-        <SiderBar items={filtered} mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} onSelect={() => setSidebarOpen(false)} />
+        <LeftSiderBar items={filtered} mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} onSelect={() => setSidebarOpen(false)} />
         <main className="flex min-w-0 flex-1 justify-center p-4 md:p-6">
           <div className="w-full min-w-0">
             <Outlet />
           </div>
         </main>
+        <RightSidebar colorTheme={colorTheme} onColorThemeChange={setColorTheme} />
       </div>
     </div>
   );
