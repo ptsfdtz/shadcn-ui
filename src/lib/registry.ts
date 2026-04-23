@@ -2,6 +2,7 @@ export type ComponentItem = {
   id: string;
   name: string;
   path: string;
+  isNew?: boolean;
 };
 
 export const componentItems: ComponentItem[] = [
@@ -23,9 +24,9 @@ export const componentItems: ComponentItem[] = [
   { id: 'combobox', name: 'Combobox', path: '/components/combobox' },
   { id: 'command', name: 'Command', path: '/components/command' },
   { id: 'context-menu', name: 'Context Menu', path: '/components/context-menu' },
-  { id: 'data-table', name: 'Data Table', path: '/components/data-table' },
+  { id: 'data-table', name: 'Data Table', path: '/components/data-table', isNew: true },
   { id: 'date-picker', name: 'Date Picker', path: '/components/date-picker' },
-  { id: 'direction', name: 'Direction', path: '/components/direction' },
+  { id: 'direction', name: 'Direction', path: '/components/direction', isNew: true },
   { id: 'dialog', name: 'Dialog', path: '/components/dialog' },
   { id: 'drawer', name: 'Drawer', path: '/components/drawer' },
   { id: 'dropdown-menu', name: 'Dropdown Menu', path: '/components/dropdown-menu' },
@@ -54,7 +55,7 @@ export const componentItems: ComponentItem[] = [
   { id: 'select', name: 'Select', path: '/components/select' },
   { id: 'separator', name: 'Separator', path: '/components/separator' },
   { id: 'sheet', name: 'Sheet', path: '/components/sheet' },
-  { id: 'sidebar', name: 'Sidebar', path: '/components/sidebar' },
+  { id: 'sidebar', name: 'Sidebar', path: '/components/sidebar', isNew: true },
   { id: 'skeleton', name: 'Skeleton', path: '/components/skeleton' },
   { id: 'slider', name: 'Slider', path: '/components/slider' },
   { id: 'sonner', name: 'Sonner', path: '/components/sonner' },
@@ -66,5 +67,5 @@ export const componentItems: ComponentItem[] = [
   { id: 'toggle', name: 'Toggle', path: '/components/toggle' },
   { id: 'toggle-group', name: 'Toggle Group', path: '/components/toggle-group' },
   { id: 'tooltip', name: 'Tooltip', path: '/components/tooltip' },
-  { id: 'typography', name: 'Typography', path: '/components/typography' },
+  { id: 'typography', name: 'Typography', path: '/components/typography', isNew: true },
 ];

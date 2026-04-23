@@ -12,12 +12,19 @@ type SidebarItem = {
 
 type SiderBarProps = {
   items: SidebarItem[];
+  unseenItemIds?: ReadonlySet<string>;
   mobileOpen?: boolean;
   onClose?: () => void;
   onSelect?: () => void;
 };
 
-export function LeftSiderBar({ items, mobileOpen = false, onClose, onSelect }: SiderBarProps) {
+export function LeftSiderBar({
+  items,
+  unseenItemIds,
+  mobileOpen = false,
+  onClose,
+  onSelect,
+}: SiderBarProps) {
   return (
     <aside
       className={cn(
@@ -42,7 +49,10 @@ export function LeftSiderBar({ items, mobileOpen = false, onClose, onSelect }: S
                 className={cn('w-full justify-start', isActive && 'bg-accent text-accent-foreground')}
                 onClick={() => onSelect?.()}
               >
-                {item.name}
+                <span className="min-w-0 flex-1 truncate text-left">{item.name}</span>
+                {unseenItemIds?.has(item.id) && (
+                  <span className="bg-primary size-2 shrink-0 rounded-full" aria-hidden="true" />
+                )}
               </Button>
             )}
           </NavLink>
