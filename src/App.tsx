@@ -22,7 +22,9 @@ import {
   ComboboxPreview,
   CommandPreview,
   ContextMenuPreview,
+  DataTablePreview,
   DatePickerPreview,
+  DirectionPreview,
   DialogPreview,
   DrawerPreview,
   DropdownMenuPreview,
@@ -47,6 +49,7 @@ import {
   SelectPreview,
   SeparatorPreview,
   SheetPreview,
+  SidebarPreview,
   SkeletonPreview,
   SliderPreview,
   SonnerPreview,
@@ -58,6 +61,7 @@ import {
   TogglePreview,
   ToggleGroupPreview,
   TooltipPreview,
+  TypographyPreview,
 } from '@/routes/components';
 
 export function App() {
@@ -84,7 +88,9 @@ export function App() {
           <Route path="/components/combobox" element={<ComboboxPreview />} />
           <Route path="/components/command" element={<CommandPreview />} />
           <Route path="/components/context-menu" element={<ContextMenuPreview />} />
+          <Route path="/components/data-table" element={<DataTablePreview />} />
           <Route path="/components/date-picker" element={<DatePickerPreview />} />
+          <Route path="/components/direction" element={<DirectionPreview />} />
           <Route path="/components/dialog" element={<DialogPreview />} />
           <Route path="/components/drawer" element={<DrawerPreview />} />
           <Route path="/components/dropdown-menu" element={<DropdownMenuPreview />} />
@@ -109,6 +115,7 @@ export function App() {
           <Route path="/components/select" element={<SelectPreview />} />
           <Route path="/components/separator" element={<SeparatorPreview />} />
           <Route path="/components/sheet" element={<SheetPreview />} />
+          <Route path="/components/sidebar" element={<SidebarPreview />} />
           <Route path="/components/skeleton" element={<SkeletonPreview />} />
           <Route path="/components/slider" element={<SliderPreview />} />
           <Route path="/components/sonner" element={<SonnerPreview />} />
@@ -120,6 +127,7 @@ export function App() {
           <Route path="/components/toggle" element={<TogglePreview />} />
           <Route path="/components/toggle-group" element={<ToggleGroupPreview />} />
           <Route path="/components/tooltip" element={<TooltipPreview />} />
+          <Route path="/components/typography" element={<TypographyPreview />} />
           <Route path="*" element={<ErrrorPage />} />
         </Route>
       </Routes>

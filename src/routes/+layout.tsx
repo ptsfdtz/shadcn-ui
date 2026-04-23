@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Header, LeftSiderBar, RightSidebar } from '@/components';
 import { componentItems } from '@/lib/registry';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 export function Layout() {
   const [search, setSearch] = React.useState('');
@@ -35,25 +36,27 @@ export function Layout() {
   }, [search]);
 
   return (
-    <div className="bg-background text-foreground min-h-screen">
-      <Header
-        search={search}
-        onSearchChange={setSearch}
-        theme={theme}
-        onToggleTheme={() => setTheme(current => (current === 'light' ? 'dark' : 'light'))}
-        sidebarOpen={sidebarOpen}
-        onToggleSidebar={() => setSidebarOpen(open => !open)}
-      />
-      <div className="relative flex min-h-[calc(100vh-60px)]">
-        {sidebarOpen && <div className="fixed inset-0 z-20 bg-black/40 md:hidden" onClick={() => setSidebarOpen(false)} aria-hidden="true" />}
-        <LeftSiderBar items={filtered} mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} onSelect={() => setSidebarOpen(false)} />
-        <main className="flex min-w-0 flex-1 justify-center p-4 md:p-6">
-          <div className="w-full min-w-0">
-            <Outlet />
-          </div>
-        </main>
-        <RightSidebar colorTheme={colorTheme} onColorThemeChange={setColorTheme} />
+    <TooltipProvider>
+      <div className="bg-background text-foreground min-h-screen">
+        <Header
+          search={search}
+          onSearchChange={setSearch}
+          theme={theme}
+          onToggleTheme={() => setTheme(current => (current === 'light' ? 'dark' : 'light'))}
+          sidebarOpen={sidebarOpen}
+          onToggleSidebar={() => setSidebarOpen(open => !open)}
+        />
+        <div className="relative flex min-h-[calc(100vh-60px)]">
+          {sidebarOpen && <div className="fixed inset-0 z-20 bg-black/40 md:hidden" onClick={() => setSidebarOpen(false)} aria-hidden="true" />}
+          <LeftSiderBar items={filtered} mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} onSelect={() => setSidebarOpen(false)} />
+          <main className="flex min-w-0 flex-1 justify-center p-4 md:p-6">
+            <div className="w-full min-w-0">
+              <Outlet />
+            </div>
+          </main>
+          <RightSidebar colorTheme={colorTheme} onColorThemeChange={setColorTheme} />
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }

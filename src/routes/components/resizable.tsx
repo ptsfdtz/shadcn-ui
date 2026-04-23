@@ -5,7 +5,7 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/componen
 export function ResizablePreview() {
   return (
     <ComponentPage title="Resizable" description="用于可拖拽调整面板" docs={<Docs components={mdxComponents} />}>
-      <ResizablePanelGroup direction="horizontal" className="max-w-sm rounded-lg border">
+      <ResizablePanelGroup orientation="horizontal" className="max-w-sm rounded-lg border">
         <ResizablePanel defaultSize={50}>
           <div className="flex h-[200px] items-center justify-center p-6">
             <span className="font-semibold">One</span>
@@ -13,7 +13,7 @@ export function ResizablePreview() {
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel defaultSize={50}>
-          <ResizablePanelGroup direction="vertical">
+          <ResizablePanelGroup orientation="vertical">
             <ResizablePanel defaultSize={25}>
               <div className="flex h-full items-center justify-center p-6">
                 <span className="font-semibold">Two</span>
